@@ -1,0 +1,28 @@
+Q-1.
+a.
+curl –o structure.pdb http://www.staff.hs-mittweida.de/~wuenschi/data/media/compbiolbook/chapter-11-regex--structure.pdb
+
+sed ‘s/Beisel/Weisel/g’ structure.pdb
+
+b.
+sed ‘1,3d’ structure.pdb
+
+c.
+sed –n ‘5,10p’ structure.pdb
+
+d. 
+sed ‘/\w*MET\w*/d’ structure.pdb
+
+e.
+sed –n ‘/HELIX.*ILE/p’ structure.pdb
+
+f.
+sed ‘/^H/s/$/***/g’ structure.pdb
+
+g.
+sed ‘/SEQRES/s/^.*$/SEQ’ structure.pdb
+
+h.
+$ scp -i 45546479.pem jabberwocky.txt ubuntu@ec2-13-239-54-200.ap-southeast-2.compute.amazonaws.com:~
+
+sed '/^\s*$/d' jabberwocky.txt
