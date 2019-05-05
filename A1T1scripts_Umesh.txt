@@ -1,0 +1,109 @@
+Q-1 
+f=open("twain.txt","r")
+contents=f.read()
+f.close()
+replaced_contents=contents.replace('Huck','HucK')
+f=open("twain.txt","w")
+f.write(replaced_contents)
+f.close()
+
+Q-2
+#userargument.py
+import sys
+import stdio
+
+stdio.write('Hi, ')
+stdio.write(sys.argv[1])
+stdio.write('. How are you?')
+
+a.
+python3 userargument.py python
+
+b.
+python3 userargument.py @!&^%
+
+c.
+python3 userargument.py 1234
+
+d.
+python3 userargument.py Bob
+
+e.
+userargument.py Bob
+
+f.
+python3 userargument.py Alice Bob
+
+Q-3
+# To test whether a given integer is leap year or not in Gregorian calendar
+import sys
+
+if len(sys.argv)!=2:
+    print('Wrong number of arguments given')
+elif int(sys.argv[1])>0:
+    y=int(sys.argv[1])
+    if y%4 == 0:
+        if y%100 == 0:
+            if y%400 == 0:
+                print('Leap year')
+            else:
+                print('Not a leap year')
+        else:
+            print('Leap year')
+    else:
+        print('Not a leap year')
+else:
+    print('Wrong input given')
+
+Q-4
+# To generate random integer between a and b (taken as user input)
+import random
+import sys
+
+if len(sys.argv)!=3:
+    print('Wrong number of arguments given')
+elif int(sys.argv[1]) < int(sys.argv[2]):
+    x=int(sys.argv[1])
+    y=int(sys.argv[2])
+    z=random.randint(x,y)
+    print(f'Random integer between {x} and {y} is: {z}')
+else:
+    print('Wrong input, first integer must be less than second integer')
+
+Q-5
+#Output True if m and d in between March 20 and June 20
+import sys
+
+if len(sys.argv)!=3:
+    print('Wrong number of arguments given')
+elif int(sys.argv[1])<=0 or int(sys.argv[2])<=0:
+    print('Wrong input given')
+else:
+    m=int(sys.argv[1])
+    d=int(sys.argv[2])
+    if ((m==3) and (d>=20 and d<=31)):
+        print('True')
+    elif (m==4) and (d>=1 and d<=30):
+        print('True')
+    elif (m==5) and (d>=1 and d<=31):
+        print('True')
+    elif (m==6) and (d>=1 and d<=20):
+        print('True')
+    else:
+        print('False')
+
+Q-6
+#Calculate accumulated value of invested amount at continuously compounded rate. command line input - t (years),P,r
+import sys
+import math
+
+if len(sys.argv)!=4:
+    print('Wrong number of arguments given')
+elif float(sys.argv[1])>0 and float(sys.argv[2])>0 and float(sys.argv[3])>0:
+    t=float(sys.argv[1])
+    P=float(sys.argv[2])
+    r=float(sys.argv[3])
+    Total=P*math.e**(r*t)
+    print(f'Accumulated value of {P} after time {t} years at interst rate of {r*100:.2f}% is: {Total:2f}')
+else:
+    print('Wrong input given')
